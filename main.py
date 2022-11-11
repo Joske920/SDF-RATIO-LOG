@@ -1,5 +1,5 @@
 import pandas as pd
-import streamlit as st
+import streamlit as st # pip install streamlit
 import database as db
 from datetime import datetime
 
@@ -11,7 +11,6 @@ st.set_page_config(
 )
 
 # --- HIDE STREAMLIT STYLE ---
-
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}

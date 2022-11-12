@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="SDF Lijm Ratio Registratie",
     page_icon="pencil",
     layout="centered",
-    initial_sidebar_state="expanded", #"collapsed"
+    initial_sidebar_state="collapsed", #"expanded"
 )
 
 # --- HIDE STREAMLIT STYLE ---

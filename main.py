@@ -59,13 +59,18 @@ def resetingave():
     updateHarder()
 
 def submit_data():
-    if user > 0:
+    if user > 0 and st.session_state["brutto_lijmgewicht"] > 0  and st.session_state["brutto_hardergewicht"] > 0:
         dt_string = datetime.now().strftime("%Y%m%d_%H%M%S")
         db.insert_record(dt_string, user, st.session_state["netto_lijmgewicht"], st.session_state["netto_hardergewicht"], calc(), st.session_state["commentaar_veld"])
         resetingave()
         st.success("Informatie opgeslaan!")
     else:
-        st.error("Vul je werknemers ID in aub")
+        if user == 0:
+            st.error("Vul je werknemers ID in aub")
+        if st.session_state["brutto_lijmgewicht"] <= st.session_state["tarra_lijmgewicht"]:
+            st.error("Lijm gewicht kan niet kleiner zijn dan de beker!")
+        if st.session_state["brutto_hardergewicht"] <= st.session_state["tarra_hardergewicht"]:
+            st.error("Harder gewicht kan niet kleiner zijn dan de beker!")
 
 def updateUser():
     global user
